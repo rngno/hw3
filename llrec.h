@@ -84,6 +84,22 @@ Node* llfilter(Node* head, Comp pred)
     // Provide your implementation below
     //*********************************************
 
+    // base case, just check for when we walk to the end of the list
+    if(head == nullptr){
+        return nullptr;
+    }
+
+    // process rest of list to keep list order per requirements
+    head->next = llfilter(head->next, pred);
+
+    // process actual head now so we know what to free
+    if(pred(head->val) == true){
+        Node* tmp = head->next; // need tmp to preserve list order
+        delete head;
+        head = tmp; // im doing this to have one return statement lol
+    }
+
+    return head;
 
 }
 

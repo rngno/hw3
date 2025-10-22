@@ -90,20 +90,3 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
  *
  */
 
- template<typename Comp>
-Node* llfilter(Node* head, Comp pred){
-  if(head == nullptr){
-    return nullptr;
-  }
-
-  Node* tmp = head->next;
-  if(pred(head->val) == true){
-    delete head;
-    head = tmp;
-  }
-  else{
-    return head;
-  }
-
-  return llfilter(head, pred);
-}
