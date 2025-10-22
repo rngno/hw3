@@ -68,3 +68,42 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
   return llpivot(head->next, smaller, larger, pivot);
   head = nullptr;
 }
+
+/**
+ * Given a linked list pointed to by head, removes (filters out) nodes
+ * whose value does not meet the criteria given by the predicate
+ * function object, pred (i.e. pred should be a function object that implements
+ * `bool operator()(int value)` and returns *true* for items that should
+ * be *removed/filtered*.  Removed items should be deallocated.
+ *
+ * ==============================================================
+ * MUST RUN IN O(n) where n is the number of nodes in the input list
+ * ==============================================================
+ *
+ * @param[in] head
+ *   Reference to the head pointer to the input list.
+ * @param[in] pred
+ *   Predicate object implementing: `bool operator()(int value)` that
+ *   returns true if a node (based on its value) should be removed.
+ * @return a head pointer to the resulting list (since the head pointer
+ *   may change [i.e. be filtered])
+ *
+ */
+
+ template<typename Comp>
+Node* llfilter(Node* head, Comp pred){
+  if(head == nullptr){
+    return nullptr;
+  }
+
+  Node* tmp = head->next;
+  if(pred(head->val) == true){
+    delete head;
+    head = tmp;
+  }
+  else{
+    return head;
+  }
+
+  return llfilter(head, pred);
+}
