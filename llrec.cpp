@@ -45,7 +45,7 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
   // might need this? not super sure
   // make Node ptr to maintain list order
   Node* tmp = head->next;
-  head->next = nullptr; // need to remove curr node from the rest of the list to keep order
+  //head->next = nullptr; // need to remove curr node from the rest of the list to keep order
 
   return llpivot(tmp, smaller, larger, pivot); // testing head recursion (tail broke)
 
