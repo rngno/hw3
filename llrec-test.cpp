@@ -87,6 +87,7 @@ int main(int argc, char* argv[])
 
     // Test out your linked list code
     // test for llpivot from example in guide
+    cout << "llpivot example test: " << endl;
     Node* smaller = nullptr;
     Node* larger = nullptr;
     llpivot(head, smaller, larger, 5);
@@ -95,7 +96,8 @@ int main(int argc, char* argv[])
     cout << "Larger: ";
     print(larger);
 
-
+    // test for llfilter
+    
     
     return 0;
 
