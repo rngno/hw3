@@ -44,49 +44,21 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
 
   // might need this? not super sure
   // make Node ptr to maintain list order
-  //Node* tmp = head;
+  Node* tmp = head->next;
+  head->next = nullptr; // need to remove curr node from the rest of the list to keep order
 
   // place current item in correct list
   if(head->val <= pivot){
-    if(smaller == nullptr){
-      smaller = head;
-    }
-    else{
-      smaller->next = head;
-    }
+    head->next = smaller; // re-connect LL here to keep processing
+    smaller = head;
   }
+  // including if condition here for my own clarity
   else if (head->val > pivot){
-    if(larger == nullptr){
-      larger = head;
-    }
-    else{
-      larger->next = head;
-    }
+    head->next = larger; // re-connect LL here to keep processing
+    larger = head;
   }
 
   // done processing, time to go back 
-  return llpivot(head->next, smaller, larger, pivot);
+  return llpivot(tmp, smaller, larger, pivot);
   head = nullptr;
 }
-
-/**
- * Given a linked list pointed to by head, removes (filters out) nodes
- * whose value does not meet the criteria given by the predicate
- * function object, pred (i.e. pred should be a function object that implements
- * `bool operator()(int value)` and returns *true* for items that should
- * be *removed/filtered*.  Removed items should be deallocated.
- *
- * ==============================================================
- * MUST RUN IN O(n) where n is the number of nodes in the input list
- * ==============================================================
- *
- * @param[in] head
- *   Reference to the head pointer to the input list.
- * @param[in] pred
- *   Predicate object implementing: `bool operator()(int value)` that
- *   returns true if a node (based on its value) should be removed.
- * @return a head pointer to the resulting list (since the head pointer
- *   may change [i.e. be filtered])
- *
- */
-
