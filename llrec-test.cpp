@@ -90,6 +90,10 @@ int main(int argc, char* argv[])
     Node* smaller;
     Node* larger;
     llpivot(head, smaller, larger, 5);
+    cout << "Smaller: ";
+    print(smaller);
+    cout << "Larger: ";
+    print(larger);
 
 
     
