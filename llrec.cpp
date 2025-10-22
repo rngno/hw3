@@ -47,7 +47,7 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
   //Node* tmp = head;
 
   // place current item in correct list
-  if(head->val =< pivot){
+  if(head->val <= pivot){
     if(smaller == nullptr){
       smaller = head;
     }
