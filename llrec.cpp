@@ -47,6 +47,8 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
   Node* tmp = head->next;
   head->next = nullptr; // need to remove curr node from the rest of the list to keep order
 
+  return llpivot(tmp, smaller, larger, pivot);
+
   // place current item in correct list
   if(head->val <= pivot){
     head->next = smaller; // re-connect LL here to keep processing
@@ -59,6 +61,6 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
   }
 
   // done processing, time to go back 
-  return llpivot(tmp, smaller, larger, pivot);
+  //return llpivot(tmp, smaller, larger, pivot);
   head = nullptr;
 }
