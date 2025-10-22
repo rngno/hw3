@@ -51,7 +51,7 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
   Node* tmpSmaller = nullptr;
   Node* tmpLarger = nullptr;
 
-  return llpivot(tmp, tmpSmaller, tmpLarger, pivot); // testing head recursion (tail broke)
+  llpivot(tmp, tmpSmaller, tmpLarger, pivot); // testing head recursion (tail broke)
 
   // place current item in correct list
   if(head->val <= pivot){
