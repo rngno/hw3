@@ -48,22 +48,22 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
   //head->next = nullptr; // need to remove curr node from the rest of the list to keep order
 
   // need these ptrs to do head recursion
-  Node* tmp-smaller = nullptr;
-  Node* tmp-larger = nullptr;
+  Node* tmpSmaller = nullptr;
+  Node* tmpLarger = nullptr;
 
-  return llpivot(tmp, tmp-smaller, tmp-larger, pivot); // testing head recursion (tail broke)
+  return llpivot(tmp, tmpSmaller, tmpLarger, pivot); // testing head recursion (tail broke)
 
   // place current item in correct list
   if(head->val <= pivot){
     smaller = head;
-    smaller->next = tmp-smaller; // re-connect LL here to keep processing
-    larger = tmp-larger;
+    smaller->next = tmpSmaller; // re-connect LL here to keep processing
+    larger = tmpLarger;
   }
   // including if condition here for my own clarity
   else if (head->val > pivot){
     larger = head;
-    larger->next = larger; // re-connect LL here to keep processing
-    smaller = tmp-smaller;
+    larger->next = tmpLarger; // re-connect LL here to keep processing
+    smaller = tmpSmaller;
   }
 
   // done processing, time to go back 
