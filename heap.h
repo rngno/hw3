@@ -152,9 +152,12 @@ void Heap<T, PComparator>::heapifyPush(size_t idx){
 
 template<typename T, typename PComparator>
 void Heap<T, PComparator>::heapifyPop(size_t idx){
-  size_t first = m_ * idx+1;
+  size_t first = m_ * idx+1; // starting from the top and working down
   while(first < heap.size()){
-    size_t best = first;
+    size_t best = first; // initialize as first since that's all we know so far
+    
+    // walk through the rest of the heap and compare the best to each current node
+    // if it's better than our current best, just swap
     for(size_t i = 1; i<m_ && first+i<heap.size(); ++i){
       size_t curr = first + i;
       if(comp_(heap[curr], heap[best])){
