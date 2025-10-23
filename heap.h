@@ -87,7 +87,7 @@ T const & Heap<T,PComparator>::top() const
   }
   // If we get here we know the heap has at least 1 item
   // Add code to return the top element
-  heap.top();
+  return heap.begin();
 
 
 }
@@ -102,7 +102,7 @@ void Heap<T,PComparator>::pop()
     // ================================
     // throw the appropriate exception
     // ================================
-    throw underflow_error("empty heap");
+    throw std::underflow_error("empty heap");
 
   }
   heap.erase(heap.begin());
