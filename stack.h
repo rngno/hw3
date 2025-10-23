@@ -6,7 +6,7 @@
 
 // Use inheritance from std::vector (choose public/private) as appropriate
 template <typename T>
-class Stack 
+class Stack : private std::vector<T> // PRIVATE!! don't want users to use something that breaks stack operations
 {
 public:
     Stack();
@@ -19,5 +19,24 @@ public:
     // Add other members only if necessary
 };
 
+bool empty() const{
+  return std::vector<T>::empty();
+}
+
+size_t size() const{
+  return std::vector<T>::size();
+}
+
+void push(const T& item){
+  this->push_back(item);
+}
+
+void pop(){
+  this->pop_back();
+}
+
+const T& top() const{
+  return this->back();
+}
 
 #endif

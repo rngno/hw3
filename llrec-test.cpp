@@ -96,8 +96,20 @@ int main(int argc, char* argv[])
     cout << "Larger: ";
     print(larger);
 
-    // test for llfilter
-    
+    // test for llpivot when empty
+    cout << "llpivot empty test: " << endl;
+    Node* smaller = nullptr;
+    Node* larger = nullptr;
+    head = readList(argv[2]);
+    cout << "Original list (should be empty): ";
+    print(head);
+
+    llpivot(head, smaller, larger, 5);
+    cout << "Smaller: ";
+    print(smaller);
+    cout << "Larger: ";
+    print(larger);
+
     
     return 0;
 
