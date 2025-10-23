@@ -136,7 +136,7 @@ size_t Heap<T, PComparator>::size() const{
 }
 
 template<typename T, typename PComparator>
-void Heap<T, PComparator>::heapifyPush(){
+void Heap<T, PComparator>::heapifyPush(size_t idx){
   // just gonna walk through the whole thing
   while(idx > 0){
     size_t parent = (idx-1)/m_;
@@ -151,7 +151,7 @@ void Heap<T, PComparator>::heapifyPush(){
 }
 
 template<typename T, typename PComparator>
-void Heap<T, PComparator>::heapifyPop(){
+void Heap<T, PComparator>::heapifyPop(size_t idx){
   size_t first = m_ * idx+1;
   while(first < heap.size()){
     size_t best = first;
