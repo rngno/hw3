@@ -111,11 +111,11 @@ bool Circuit::parse(const char* fname)
                 }
                 //Add code here to support the NOT gate type
                 if(s_type == "NOT"){
-                  std::string s_in1;
+                  std::string s_in1; // honestly could name this something diff but wanted to keep convention
                   getline(ss, s_in1, ',');
-                  std::string s_output;
+                  std::string s_output; // don't need s_in2, so we skip straight to output here
                   getline(ss, s_output, ',');
-                  m_gates.push_back(new NotGate(m_wires[stoi(s_in1)], m_wires[stoi(s_output)]));
+                  m_gates.push_back(new NotGate(m_wires[stoi(s_in1)], m_wires[stoi(s_output)])); 
                 }
             }
         }
