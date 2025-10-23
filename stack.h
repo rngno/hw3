@@ -9,8 +9,8 @@ template <typename T>
 class Stack : private std::vector<T> // PRIVATE!! don't want users to use something that breaks stack operations
 {
 public:
-    Stack();
-    ~Stack();
+    Stack() {};
+    ~Stack() {};
     bool empty() const;
     size_t size() const;
     void push(const T& item);
