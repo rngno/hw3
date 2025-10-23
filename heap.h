@@ -87,7 +87,7 @@ T const & Heap<T,PComparator>::top() const
   }
   // If we get here we know the heap has at least 1 item
   // Add code to return the top element
-  return heap.begin();
+  return heap.front();
 
 
 }
