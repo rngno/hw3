@@ -112,6 +112,9 @@ Event* NotGate::update(uint64_t current_time){
       state = '1';
       break;
     }
+    else{
+      state = 'X';
+    }
   }
 
   // following gate conventions 
