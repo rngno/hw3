@@ -88,3 +88,37 @@ Event* Or2Gate::update(uint64_t current_time)
 	}
   return e;
 }
+
+// honestly just copying the other gate constructors here
+NotGate::NotGate(Wire* a, Wire* o) : Gate(1, o){
+  wireInput(0, a);
+}
+
+Event* NotGate::update(uint64_t current_time){
+  char state = 'X'; // start off with undefined so we can read the input after
+  Event* e = nullptr; // following other gate convention
+
+  // again, following convention for how other gates processed inputs
+  for(auto w : m_inputs){
+    char in = w->getState();
+
+    // general logic laid out for a NOT gate in the guide
+    // simple reversal of whatever input comes in (aside from 'X')
+    if(in == '1'){
+      state = '0';
+      break;
+    }
+    else if(in == '0'){
+      state = '1';
+      break;
+    }
+  }
+
+  // following gate conventions 
+  if(state != m_current_state){
+    m_current_state = state;
+    uint64_t next = current_time + m_delay;
+    e = new Event {next, m_output, state};
+  }
+  return e;
+}

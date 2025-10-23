@@ -9,7 +9,7 @@
 class Circuit 
 {
 	public:
-		Circuit();
+		Circuit() : m_current_time(0), m_pq(); // need this to initalize m_pq for later
 		~Circuit();
 		void test();
 		bool advance(std::ostream&);
@@ -24,6 +24,7 @@ class Circuit
     std::vector<Wire*> m_wires;
 		// we need to add the m_pq data member. It should be a min-heap of Event*;
         
+    Heap<Event*, EventLess> m_pq; 
 };
 
 #endif
