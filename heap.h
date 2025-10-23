@@ -2,6 +2,7 @@
 #define HEAP_H
 #include <functional>
 #include <stdexcept>
+#include <vector>
 
 template <typename T, typename PComparator = std::less<T> >
 class Heap
@@ -61,7 +62,7 @@ public:
 
 private:
   /// Add whatever helper functions and data members you need below
-
+  std::vector<T> heap;
 
 
 
@@ -81,12 +82,12 @@ T const & Heap<T,PComparator>::top() const
     // ================================
     // throw the appropriate exception
     // ================================
-
+    throw std::underflow_error("empty heap");
 
   }
   // If we get here we know the heap has at least 1 item
   // Add code to return the top element
-
+  heap.top();
 
 
 }
@@ -101,10 +102,10 @@ void Heap<T,PComparator>::pop()
     // ================================
     // throw the appropriate exception
     // ================================
-
+    throw underflow_error("empty heap");
 
   }
-
+  heap.erase(heap.begin());
 
 
 }
