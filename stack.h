@@ -24,6 +24,7 @@ bool Stack<T>::empty() const{
   return std::vector<T>::empty();
 }
 
+template<typename T>
 size_t Stack<T>::size() const{
   return std::vector<T>::size();
 }
@@ -33,8 +34,9 @@ void Stack<T>::push(const T& item){
   std::vector<T>::push_back(item); // borrowing from vector
 }
 
+template<typename T>
 void Stack<T>::pop(){
-  if(this->empty()){
+  if(Stack<T>::empty()){
     throw std::underflow_error("empty stack");
   }
   std::vector<T>::pop_back(); // borrowing from vector
@@ -42,7 +44,7 @@ void Stack<T>::pop(){
 
 template<typename T>
 const T& Stack<T>::top() const{
-  if(this->empty()){
+  if(Stack<T>::empty()){
     throw std::underflow_error("empty stack");
   }
   return std::vector<T>::back(); // borrowing from vector
