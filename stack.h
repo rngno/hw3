@@ -19,25 +19,26 @@ public:
     // Add other members only if necessary
 };
 
-Stack::bool empty() const{
+template<typename T>
+bool Stack<T>::empty() const{
   return std::vector<T>::empty();
 }
 
-Stack::size_t size() const{
+size_t Stack<T>::size() const{
   return std::vector<T>::size();
 }
 
 template<typename T>
-Stack::void push(const T& item){
+void Stack<T>::push(const T& item){
   this->push_back(item);
 }
 
-Stack::void pop(){
+void Stack<T>::pop(){
   this->pop_back();
 }
 
 template<typename T>
-Stack::const T& top() const{
+const T& Stack<T>::top() const{
   return this->back();
 }
 
