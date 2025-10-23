@@ -9,7 +9,7 @@
 class Circuit 
 {
 	public:
-		Circuit() : m_current_time(0), m_pq(); // need this to initalize m_pq for later
+		Circuit(); // need this to initalize m_pq for later
 		~Circuit();
 		void test();
 		bool advance(std::ostream&);
