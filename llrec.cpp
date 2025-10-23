@@ -39,7 +39,9 @@
 void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot){
   // base case when list is empty
   if(head == nullptr){
-    return nullptr;
+    smaller = nullptr;
+    larger = nullptr;
+    return;
   }
 
   // might need this? not super sure
