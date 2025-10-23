@@ -27,6 +27,7 @@ size_t size() const{
   return std::vector<T>::size();
 }
 
+template<typename T>
 void push(const T& item){
   this->push_back(item);
 }
@@ -35,6 +36,7 @@ void pop(){
   this->pop_back();
 }
 
+template<typename T>
 const T& top() const{
   return this->back();
 }
