@@ -12,4 +12,7 @@ int main(){
   cout << "Size: " << tester.size() << endl;
   cout << "Pop: " << endl;
   tester.pop();
+
+
+  return 0;
 }
