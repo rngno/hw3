@@ -30,16 +30,22 @@ size_t Stack<T>::size() const{
 
 template<typename T>
 void Stack<T>::push(const T& item){
-  this->push_back(item);
+  this->push_back(item); // borrowing from vector
 }
 
 void Stack<T>::pop(){
-  this->pop_back();
+  if(this->empty()){
+    throw std::underflow_error();
+  }
+  this->pop_back(); // borrowing from vector
 }
 
 template<typename T>
 const T& Stack<T>::top() const{
-  return this->back();
+  if(this->empty()){
+    throw std::underflow_error();
+  }
+  return this->back(); // borrowing from vector
 }
 
 #endif
