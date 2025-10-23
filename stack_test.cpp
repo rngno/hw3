@@ -1,6 +1,8 @@
 #include "stack.h"
 #include <iostream>
 
+using namespace std;
+
 int main(){
   Stack<int> tester;
   cout << "Empty: " << tester.empty() << endl;
